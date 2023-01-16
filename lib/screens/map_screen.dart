@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maps_app/blocs/blocs.dart';
 import 'package:maps_app/views/views.dart';
-import 'package:maps_app/widgets/btn_toggle_user%20route.dart';
 import 'package:maps_app/widgets/widgets.dart';
 
 class MapScreen extends StatefulWidget {
@@ -48,6 +47,8 @@ class _MapScreenState extends State<MapScreen> {
                       initialLocation: locationState.lastKnownLocation!,
                       polylines: polylines.values.toSet(),
                     ),
+                    const SafeArea(child: SearchMap()),
+                    const ManualMarker()
                   ],
                 ),
               );
