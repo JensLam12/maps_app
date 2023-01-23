@@ -33,7 +33,7 @@ class MapView extends StatelessWidget {
           initialCameraPosition: _kLake,
           compassEnabled: true,
           myLocationButtonEnabled: false,
-          zoomControlsEnabled: false,
+          zoomControlsEnabled: true,
           myLocationEnabled: true,
           polylines: polylines,
           onMapCreated: ( controller) => mapBloc.add( OnMapInitializedEvent(controller) ),

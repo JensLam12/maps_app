@@ -24,11 +24,19 @@ class SearchMap extends StatelessWidget {
 class _SearchMapBody extends StatelessWidget {
   const _SearchMapBody({super.key});
 
-  onSearchResults( BuildContext context, SearchResult result) {
+  onSearchResults( BuildContext context, SearchResult result) async {
     final searchBloc = BlocProvider.of<SearchBloc>(context);
+    final mapBloc = BlocProvider.of<MapBloc>(context);
+    final locationBloc = BlocProvider.of<LocationBloc>(context);
+    
     if( result.manual == true ) {
       searchBloc.add( onActivateManualMarkerEvent() );
       return;
+    }
+
+    if( result.position !=null) {
+      final destination = await searchBloc.getCoorsStartToEnd( locationBloc.state.lastKnownLocation!, result.position!);
+      await mapBloc.drawRoutePolyline( destination);
     }
   }
 
