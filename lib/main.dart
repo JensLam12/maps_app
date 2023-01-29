@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maps_app/blocs/blocs.dart';
 import 'package:maps_app/screens/screens.dart';
 import 'package:maps_app/services/traffic_service.dart';
+import 'package:maps_app/widgets/widgets.dart';
 
 void main() { 
   runApp( MultiBlocProvider(
